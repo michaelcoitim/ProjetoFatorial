@@ -7,7 +7,7 @@ package classes;
 
 /**
  *
- * @author micha
+ * @author Michael Coitim
  */
 public class telaFatorial extends javax.swing.JFrame {
 
@@ -45,6 +45,11 @@ public class telaFatorial extends javax.swing.JFrame {
 
         txtnumero.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         txtnumero.setModel(new javax.swing.SpinnerNumberModel(0, 0, 12, 1));
+        txtnumero.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                txtnumeroStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,6 +82,21 @@ public class telaFatorial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtnumeroStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_txtnumeroStateChanged
+        // metodo com a logica do fatorial 
+       int n = Integer.parseInt(txtnumero.getValue().toString());
+       int fat=1; 
+       int c =n;
+       
+       while (c>=1){
+           fat *= c;
+           c--;
+           
+       }
+       lblFatorial.setText(Integer.toString(fat));
+        
+    }//GEN-LAST:event_txtnumeroStateChanged
 
     /**
      * @param args the command line arguments
