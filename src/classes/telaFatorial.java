@@ -5,6 +5,8 @@
  */
 package classes;
 
+import java.time.Clock;
+
 /**
  *
  * @author Michael Coitim
@@ -31,6 +33,7 @@ public class telaFatorial extends javax.swing.JFrame {
         lblFatorial = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtnumero = new javax.swing.JSpinner();
+        lblconta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,33 +54,43 @@ public class telaFatorial extends javax.swing.JFrame {
             }
         });
 
+        lblconta.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblconta.setText("0! = 1");
+        lblconta.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(txtnumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel1)
                         .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addGap(27, 27, 27)
                         .addComponent(lblFatorial))
-                    .addComponent(jLabel3))
-                .addContainerGap(105, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblconta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(lblFatorial)
                     .addComponent(txtnumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblconta, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
@@ -88,13 +101,18 @@ public class telaFatorial extends javax.swing.JFrame {
        int n = Integer.parseInt(txtnumero.getValue().toString());
        int fat=1; 
        int c =n;
+       String conta = Integer.toString(n);
        
        while (c>=1){
            fat *= c;
            c--;
+           conta +=("x "+c);
+           
            
        }
        lblFatorial.setText(Integer.toString(fat));
+       lblconta.setText(Integer.toString(n)+"!="+conta +"="+Integer.toString(fat));
+       
         
     }//GEN-LAST:event_txtnumeroStateChanged
 
@@ -137,6 +155,7 @@ public class telaFatorial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblFatorial;
+    private javax.swing.JLabel lblconta;
     private javax.swing.JSpinner txtnumero;
     // End of variables declaration//GEN-END:variables
 }
